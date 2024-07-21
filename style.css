@@ -2,24 +2,5 @@ body {
   margin: 0;
   background-color: #7FFFD4;
   text-align: center;
-}
-
-h1 {
   color: black;
-}
-
-h2 {
-  color: DarkSlateGray;
-}
-
-h3 {
-  color: DimGray;
-}
-
-h4 {
-  color: Gray;
-}
-
-h5 {
-  color: LightGray;
 }
