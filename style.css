@@ -1,6 +1,29 @@
 body {
   margin: 0;
   background-color: #7FFFD4;
-  text-align: center;
+}
+
+h1 {
   color: black
+  text-align: center
+}
+
+h2 {
+  color: DarkSlateGray
+  text-align: center
+}
+
+h3 {
+  color: DimGray
+  text-align: center
+}
+
+h4 {
+  color: Gray
+  text-align: center
+}
+
+h5 {
+  color: LightGray
+  text-align: center
 }
