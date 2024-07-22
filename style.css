@@ -4,3 +4,23 @@ body {
   text-align: center;
   color: black;
 }
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+h2 {
+  text-align: center;
+  color: dimgray;
+}
+
+h3 {
+  text-align: center;
+  color: gray;
+}
+
+h4 {
+  text-align: center;
+  color: silver;
+}
