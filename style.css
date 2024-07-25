@@ -2,7 +2,7 @@ blockquote {
   border:none;
   font-family:Georgia, "Times New Roman", Times, serif;
   margin-bottom:-30px;
-  quotes: "\201C""\201D";
+  quotes: "\201C""\201D""&nbsp";
 }
 
 blockquote h3 {
