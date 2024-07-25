@@ -2,7 +2,7 @@ blockquote {
   border:none;
   font-family:Georgia, "Times New Roman", Times, serif;
   margin-bottom:-30px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C""\201D";
 }
 
 blockquote h3 {
