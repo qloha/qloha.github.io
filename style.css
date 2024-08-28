@@ -77,19 +77,16 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  animation: slideDown 1s ease-in-out 3s forwards;
 }
 
 @keyframes slideDown {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
+  0% {
+      transform: translateY(0);
+      opacity: 1;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  100% {
+      transform: translateY(100%);
+      opacity: 0;
   }
-}
-
-.slide-down {
-  animation: slideDown 1s forwards;
 }
