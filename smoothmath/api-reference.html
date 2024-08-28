@@ -43,8 +43,19 @@
 #Result is 0.5</code></pre>
     </section>
   </main>
-  <footer>
+  <button onclick="toggleFooter()">Toggle Footer</button>
+  <footer id="footer">
     <p>© 2024 qloha. All rights reserved.</p>
   </footer>
+  <script>
+    function toggleFooter() {
+      var footer = document.getElementById('footer');
+      if (footer.style.display === 'none') {
+        footer.style.display = 'block';
+      } else {
+        footer.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
