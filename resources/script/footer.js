@@ -1,5 +1,5 @@
 window.onload = function() {
     setTimeout(function() {
-      document.querySelector('footer').classList.add('fade-out');
+      document.querySelector('footer').classList.add('slide-down');
     }, 3000);
   };

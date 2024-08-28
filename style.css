@@ -79,15 +79,17 @@ footer {
   bottom: 0;
 }
 
-@keyframes fadeOut {
+@keyframes slideDown {
   from {
-    opacity: 1;
+    transform: translateY(-100%);
+    opacity: 0;
   }
   to {
-    opacity: 0;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.fade-out {
-  animation: fadeOut 1s forwards;
+.slide-down {
+  animation: slideDown 1s forwards;
 }
