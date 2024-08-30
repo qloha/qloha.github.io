@@ -25,14 +25,44 @@
     <section id="downloads">
       <h2>Downloads</h2>
       <h3>.tar.gz Downloads</h3>
-      <p><a href="../resources/files/smoothmath-1.0.5.tar.gz" download>Download SmoothMath tar.gz</a></p>
+      <select id="tar-gz-select">
+        <option value="1.0.5">1.0.5</option>
+        <option value="1.0.4">1.0.4</option>
+        <option value="1.0.3">1.0.3</option>
+      </select>
+      <p><a id="tar-gz-download" href="#" download>Download SmoothMath tar.gz</a></p>
       <h3>.whl Downloads</h3>
-      <p><a href="../resources/files/smoothmath-1.0.5-py3-none-any.whl">Download SmoothMath .whl</a></p>
+      <select id="whl-select">
+        <option value="1.0.5">1.0.5</option>
+        <option value="1.0.4">1.0.4</option>
+        <option value="1.0.3">1.0.3</option>
+      </select>
+      <p><a id="whl-download" href="#" download>Download SmoothMath .whl</a></p>
       <h2>For help with installing, please visit the installation section.</h2>
     </section>
   </main>
   <footer>
-    <p>© 2024 qloha. All rights reserved.</p>
+    <p> 2024 qloha. All rights reserved.</p>
   </footer>
+  <script>
+    const tarGzSelect = document.getElementById('tar-gz-select');
+    const tarGzDownload = document.getElementById('tar-gz-download');
+    const whlSelect = document.getElementById('whl-select');
+    const whlDownload = document.getElementById('whl-download');
+
+    tarGzSelect.addEventListener('change', () => {
+      const version = tarGzSelect.value;
+      tarGzDownload.href = `../resources/files/smoothmath-${version}.tar.gz`;
+    });
+
+    whlSelect.addEventListener('change', () => {
+      const version = whlSelect.value;
+      whlDownload.href = `../resources/files/smoothmath-${version}-py3-none-any.whl`;
+    });
+
+    // Set initial download links
+    tarGzDownload.href = `../resources/files/smoothmath-1.0.5.tar.gz`;
+    whlDownload.href = `../resources/files/smoothmath-1.0.5-py3-none-any.whl`;
+  </script>
 </body>
 </html>
