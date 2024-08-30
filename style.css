@@ -118,3 +118,21 @@ footer {
       opacity: 0;
   }
 }
+
+.download-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.download-link {
+  text-decoration: none;
+  color: #4CAF50;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}
