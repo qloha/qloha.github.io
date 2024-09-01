@@ -136,7 +136,3 @@ footer {
 .download-link:hover {
   text-decoration: underline;
 }
-
-.latest-version {
-  font-weight: bold;
-}
