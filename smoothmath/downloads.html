@@ -50,25 +50,6 @@
   <footer>
     <p> 2024 qloha. All rights reserved.</p>
   </footer>
-  <script>
-    const tarGzSelect = document.getElementById('tar-gz-select');
-    const tarGzDownload = document.getElementById('tar-gz-download');
-    const whlSelect = document.getElementById('whl-select');
-    const whlDownload = document.getElementById('whl-download');
-
-    tarGzSelect.addEventListener('change', () => {
-      const version = tarGzSelect.value;
-      tarGzDownload.href = `../resources/files/smoothmath-${version}.tar.gz`;
-    });
-
-    whlSelect.addEventListener('change', () => {
-      const version = whlSelect.value;
-      whlDownload.href = `../resources/files/smoothmath-${version}-py3-none-any.whl`;
-    });
-
-    // Set initial download links
-    tarGzDownload.href = `../resources/files/smoothmath-1.0.5.tar.gz`;
-    whlDownload.href = `../resources/files/smoothmath-1.0.5-py3-none-any.whl`;
-  </script>
+  <script src="../resources/script/latest-download-version.js" defer></script>
 </body>
 </html>
