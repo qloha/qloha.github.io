@@ -1,5 +1,6 @@
 const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
+const scoreElement = document.getElementById('score');
 
 // Game variables
 let birdX = 50;
@@ -78,6 +79,7 @@ function update() {
   
   // Update score
   score++;
+  scoreElement.textContent = `Score: ${score}`;
   
   // Draw score
   ctx.font = '24px Arial';
