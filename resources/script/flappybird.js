@@ -2,14 +2,18 @@ const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 
+// Game constants
+const BIRD_WIDTH = 30;
+const BIRD_HEIGHT = 30;
+const PIPE_WIDTH = 50;
+const PIPE_GAP = 100;
+const PIPE_SPEED = 2;
+const GRAVITY = 0.2;
+
 // Game variables
 let birdX = 50;
 let birdY = 250;
 let birdVelocity = 0;
-let gravity = 0.2;
-let pipeGap = 100;
-let pipeWidth = 50;
-let pipeSpeed = 2;
 let score = 0;
 let gameOver = false;
 
@@ -20,16 +24,20 @@ let pipes = [];
 let bird = {
   x: birdX,
   y: birdY,
-  width: 30,
-  height: 30,
+  width: BIRD_WIDTH,
+  height: BIRD_HEIGHT,
   velocity: birdVelocity,
-  gravity: gravity,
+  gravity: GRAVITY,
   jump: function() {
     this.velocity = -5;
   },
   update: function() {
     this.y += this.velocity;
     this.velocity += this.gravity;
+    if (this.y + this.height > canvas.height) {
+      this.y = canvas.height - this.height;
+      this.velocity = 0;
+    }
   },
   draw: function() {
     ctx.fillStyle = 'yellow';
@@ -41,9 +49,9 @@ let bird = {
 function Pipe(x, y) {
   this.x = x;
   this.y = y;
-  this.width = pipeWidth;
-  this.height = pipeGap;
-  this.speed = pipeSpeed;
+  this.width = PIPE_WIDTH;
+  this.height = PIPE_GAP;
+  this.speed = PIPE_SPEED;
   this.draw = function() {
     ctx.fillStyle = 'green';
     ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -55,6 +63,8 @@ function Pipe(x, y) {
 
 // Game loop
 function update() {
+  if (gameOver) return; // Exit game loop when game is over
+  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   // Update bird
@@ -74,7 +84,9 @@ function update() {
   
   // Add new pipes
   if (Math.random() < 0.1) {
-    pipes.push(new Pipe(canvas.width, Math.random() * (canvas.height - pipeGap)));
+    const pipeY = Math.random() * (canvas.height - PIPE_GAP);
+    const pipeX = canvas.width;
+    pipes.push(new Pipe(pipeX, pipeY));
   }
   
   // Update score
