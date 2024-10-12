@@ -29,17 +29,19 @@ class SkriptionInterpreter {
     }
 
     handleSend(line) {
-        const message = line.match(/send\s+"(.*?)"/);
-        if (message) {
-            this.output(message[1]);
-        } else {
-            let expression = line.match(/send\s+(.*)/)[1];
-            expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
-                return this.variables[varName] !== undefined ? this.variables[varName] : match;
-            });
-            const evaluatedExpression = this.evaluateExpression(expression);
-            this.output(evaluatedExpression);
-        }
+        let expression = line.match(/send\s+(.*)/)[1];
+        // Replace variables with their values
+        expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
+            const value = this.variables[varName];
+            console.log(`Replacing ${match} with ${value}`); // Debugging log
+            return value !== undefined ? value : match;
+        });
+
+        console.log(`Evaluating expression: ${expression}`); // Debugging log
+
+        // Evaluate the final expression to get the output string
+        const evaluatedOutput = this.evaluateExpression(expression);
+        this.output(evaluatedOutput);
     }
 
     handleAssignment(line) {
@@ -47,6 +49,7 @@ class SkriptionInterpreter {
         const varName = match[1];
         const value = this.evaluateExpression(match[2]);
         this.variables[varName] = value;
+        console.log(`Assigned ${varName} = ${value}`); // Debugging log
     }
 
     handleFunctionDefinition(lines, startIndex) {
@@ -73,6 +76,7 @@ class SkriptionInterpreter {
     evaluateExpression(expression) {
         const varNames = Object.keys(this.variables);
         const varValues = Object.values(this.variables);
+        // Use a Function constructor to evaluate the expression
         const func = new Function(...varNames, `return ${expression};`);
         return func(...varValues);
     }
