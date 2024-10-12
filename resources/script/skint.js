@@ -40,6 +40,7 @@ class SkriptionInterpreter {
             this.output(expression);
         }
     }
+     
 
     handleAssignment(line) {
         const match = line.match(/\{(\w+)\}\s*=\s*(.*)/);
@@ -75,6 +76,7 @@ class SkriptionInterpreter {
         const func = new Function(...varNames, `return ${expression};`);
         return func(...varValues);
     }
+    
 
     output(message) {
         const outputElement = document.getElementById('output');
