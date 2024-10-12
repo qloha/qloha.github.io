@@ -1,132 +1,169 @@
 class SkriptionInterpreter {
     constructor() {
-        this.variables = {};
+        this.variables = {}; // Store variables here
         this.functions = {};
+        this.outputElement = document.getElementById('output');
     }
 
     execute(code) {
+        this.clearOutput(); // Clear previous output before execution
         const lines = code.split('\n');
         let i = 0;
         while (i < lines.length) {
-            let line = lines[i].trim();
+            const line = lines[i].trim();
             if (line.startsWith('function')) {
-                i = this.handleFunctionDefinition(lines, i);
-            } else {
-                this.processLine(line);
+                this.handleFunctionDefinition(line);
+            } else if (line.startsWith('send')) {
+                this.handleSend(line);
+            } else if (/\{(\w+)\}\s*=/.test(line)) {
+                this.handleAssignment(line);
+            } else if (line.startsWith('for every')) {
+                this.handleForLoop(line);
+            } else if (this.isCondition(line)) {
+                this.handleCondition(line);
+            } else if (this.isFunctionCall(line)) {
+                this.handleFunctionCall(line);
+            } else if (line.startsWith('#')) {
+                // Single-line comment: Do nothing
+            } else if (line.startsWith('```')) {
+                // Multi-line comment: Skip until the next ```
+                while (++i < lines.length && !lines[i].trim().startsWith('```'));
+            } else if (line) { // Check if line is not empty
+                this.output(`Unrecognized command: ${line}`);
             }
             i++;
         }
     }
 
-    processLine(line) {
-        if (line.startsWith('send')) {
-            this.handleSend(line);
-        } else if (/\{(\w+)\}\s*=/.test(line)) {
-            this.handleAssignment(line);
-        } else if (line.startsWith('for every')) {
-            this.handleForLoop(line);
-        } else if (/\w+\(\)/.test(line)) {
-            this.handleFunctionCall(line);
+    handleFunctionDefinition(line) {
+        const match = line.match(/function\s+(\w+)\s*{([\s\S]*?)}/);
+        if (!match) {
+            this.output('Error: Invalid function definition syntax.');
+            return;
         }
-    }
 
-    handleForLoop(line) {
-        const match = line.match(/for every \{(\w+)\} in \{(\w+)\}:/);
-        if (match) {
-            const varName = match[1]; // The variable name (e.g., x)
-            const iterableName = match[2]; // The iterable (e.g., list)
-            const iterable = this.variables[iterableName];
-
-            if (Array.isArray(iterable)) {
-                // Iterate over each item in the iterable
-                for (const item of iterable) {
-                    this.variables[varName] = item; // Set the loop variable
-                    // Execute the next lines in the loop body
-                    this.processLoopBody();
-                }
-            } else {
-                this.output(`Error: {${iterableName}} is not iterable.`);
-            }
-        }
-    }
-
-    processLoopBody() {
-        // Here you can define what should happen inside the loop body
-        // For simplicity, just sending the value of the loop variable
-        this.output(`Current value: ${this.variables['x']}`); // Replace 'x' with the loop variable if needed
+        const funcName = match[1];
+        const body = match[2].split('\n').map(l => l.trim()).filter(l => l);
+        this.functions[funcName] = body;
     }
 
     handleSend(line) {
-        let expression = line.match(/send\s+(.*)/)[1];
+        const match = line.match(/send\s+"(.*)"/);
+        if (!match) {
+            this.output('Error: Invalid send syntax.');
+            return;
+        }
+
+        // Get the content inside the quotes
+        let expression = match[1];
+
         // Replace variables with their values
-        expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
-            const value = this.variables[varName];
-            return value !== undefined ? value : match;
-        });
-        const evaluatedOutput = this.evaluateExpression(expression);
-        this.output(evaluatedOutput);
+        expression = this.replaceVariables(expression);
+
+        // Output the evaluated expression without percentage signs
+        this.output(expression);
     }
 
     handleAssignment(line) {
-        const match = line.match(/\{(\w+)\}\s*=\s*(.*)/);
-        const varName = match[1];
-        const value = this.evaluateExpression(match[2]);
-        this.variables[varName] = value;
+        const match = line.match(/\{(.*?)\} = (.*)/);
+        if (!match) {
+            this.output('Error: Invalid assignment syntax.');
+            return;
+        }
+
+        const variableName = match[1].trim();
+        const value = match[2].trim();
+
+        // Assign the value to the variables, removing surrounding quotes if necessary
+        this.variables[variableName] = value.replace(/^"|"$/g, '');
+
+        this.output(`Assigned {${variableName}} = ${this.variables[variableName]}`);
     }
 
-    handleFunctionDefinition(lines, startIndex) {
-        const match = lines[startIndex].match(/function\s+(\w+)\(\):/);
-        const funcName = match[1];
-        const funcBody = [];
-        let i = startIndex + 1;
-        while (i < lines.length && lines[i].startsWith('    ')) {
-            funcBody.push(lines[i].trim());
-            i++;
-        }
-        this.functions[funcName] = funcBody;
-        return i - 1;
+    isFunctionCall(line) {
+        return /^\w+\s+\{(\w+)\}$/.test(line);
     }
 
     handleFunctionCall(line) {
-        const funcName = line.match(/(\w+)\(\)/)[1];
-        const funcBody = this.functions[funcName];
-        if (funcBody) {
-            funcBody.forEach(funcLine => this.processLine(funcLine));
+        const match = line.match(/^(\w+)\s+\{(\w+)\}$/);
+        if (!match || !this.functions[match[1]]) {
+            this.output('Error: Function not defined.');
+            return;
+        }
+
+        const funcName = match[1];
+        const paramVarName = match[2].replace(/[{}]/g, ''); // Strip curly brackets
+
+        if (this.variables[paramVarName] !== undefined) {
+            const paramValue = this.variables[paramVarName];
+            this.functions[funcName].forEach(line => {
+                this.processLine(line.replace(/{(\w+)}/g, paramValue)); // Replace variable in function body
+            });
+        } else {
+            this.output(`Warning: Variable {${paramVarName}} is undefined.`);
         }
     }
 
+    isCondition(line) {
+        return /^(if|otherwise if|otherwise)\s+\{(\w+)\}\s*>\s*(\d+)/.test(line);
+    }
+
+    handleCondition(line) {
+        const match = line.match(/^(if|otherwise if)\s+\{(\w+)\}\s*>\s*(\d+)/);
+        if (!match) {
+            this.output('Error: Invalid condition syntax.');
+            return;
+        }
+
+        const conditionType = match[1];
+        const varName = match[2];
+        const threshold = parseInt(match[3], 10);
+
+        if (conditionType === 'if' && this.variables[varName] > threshold) {
+            this.output(`Condition met: {${varName}} is greater than ${threshold}`);
+        } else if (conditionType === 'otherwise if' && this.variables[varName] <= threshold) {
+            this.output(`Condition not met: {${varName}} is less than or equal to ${threshold}`);
+        }
+        // Handle "otherwise" as a separate case if needed
+    }
+
     evaluateExpression(expression) {
-        const varNames = Object.keys(this.variables);
-        const varValues = Object.values(this.variables);
-        const func = new Function(...varNames, `return ${expression};`);
-        return func(...varValues);
+        const replacedExpression = this.replaceVariables(expression);
+        try {
+            return eval(replacedExpression); // Be cautious with eval in real apps
+        } catch (error) {
+            this.output(`Error evaluating expression: ${error.message}`);
+            return '';
+        }
+    }
+
+    replaceVariables(expression) {
+        // Replace curly bracketed variables with their values
+        return expression.replace(/\{(.*?)\}/g, (match, p1) => {
+            // Check if the variable exists in the variables
+            if (this.variables[p1] !== undefined) {
+                return this.variables[p1];
+            }
+            return match; // Return the original match if the variable doesn't exist
+        });
     }
 
     output(message) {
-        const outputElement = document.getElementById('output');
-        outputElement.textContent += message + '\n';
+        this.outputElement.textContent += `${message}\n`;
+    }
+
+    clearOutput() {
+        this.outputElement.textContent = '';
     }
 }
 
 function executeSkription() {
-    const skriptionCode = document.getElementById('skriptionCode').value;
+    const code = document.getElementById('skriptionCode').value;
     const interpreter = new SkriptionInterpreter();
-    interpreter.execute(skriptionCode);
+    interpreter.execute(code);
 }
 
 function clearOutput() {
-    document.getElementById('output').textContent = '';
+    const interpreter = new SkriptionInterpreter();
+    interpreter.clearOutput();
 }
-
-function adjustTextareaHeight() {
-    const textarea = document.getElementById('skriptionCode');
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
-}
-
-// Initialize the textarea height adjustment
-document.addEventListener('DOMContentLoaded', () => {
-    const textarea = document.getElementById('skriptionCode');
-    textarea.addEventListener('input', adjustTextareaHeight);
-    adjustTextareaHeight(); // Adjust height on page load
-});

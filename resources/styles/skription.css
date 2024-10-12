@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -7,6 +8,7 @@ body {
     color: #333;
 }
 
+/* Navigation Styling */
 nav {
     background-color: #333;
     color: white;
@@ -28,12 +30,16 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
+    color: #ffd700; /* Gold */
     text-decoration: underline;
 }
 
+/* Header Styling */
 header {
     background-color: #ffd700; /* Gold */
     color: white;
@@ -41,22 +47,27 @@ header {
     text-align: center;
 }
 
+h1 {
+    margin: 0;
+}
+
+/* Main Content Styling */
 main {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounded corners */
 }
 
+/* Heading Styling */
 h2, h3 {
     color: #ffd700; /* Gold */
+    margin-top: 0;
 }
 
-h1 {
-    color: white;
-}
-
+/* Textarea Styling */
 textarea {
     width: 100%;
     max-width: 100%;
@@ -68,21 +79,29 @@ textarea {
     resize: none; /* Disable manual resizing */
     overflow: hidden; /* Hide scrollbars */
     min-height: 100px; /* Minimum height */
+    margin-top: 1rem;
 }
 
+/* Output Styling */
 pre {
     background-color: #ffffe0; /* Light Yellow */
     padding: 1rem;
     border-left: 5px solid #ffd700; /* Gold */
     overflow-x: auto;
+    white-space: pre-wrap; /* Prevent horizontal scrolling */
+    margin-top: 1rem;
+    border-radius: 4px; /* Rounded corners */
 }
 
 code {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Button Styling */
 .buttons {
     margin-top: 1rem;
+    display: flex;
+    gap: 10px;
 }
 
 button {
@@ -92,13 +111,15 @@ button {
     background-color: #ffd700; /* Gold */
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #e6be8a; /* Darker Gold */
 }
 
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -108,8 +129,10 @@ footer {
     width: 100%;
     bottom: 0;
     animation: slideDown 1s ease-in-out 3s forwards;
+    opacity: 0.9; /* Slight transparency */
 }
 
+/* Slide Down Animation */
 @keyframes slideDown {
     0% {
         transform: translateY(0);
@@ -118,5 +141,28 @@ footer {
     100% {
         transform: translateY(100%);
         opacity: 0;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
     }
 }
