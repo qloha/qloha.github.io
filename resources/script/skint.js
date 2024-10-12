@@ -23,9 +23,37 @@ class SkriptionInterpreter {
             this.handleSend(line);
         } else if (/\{(\w+)\}\s*=/.test(line)) {
             this.handleAssignment(line);
+        } else if (line.startsWith('for every')) {
+            this.handleForLoop(line);
         } else if (/\w+\(\)/.test(line)) {
             this.handleFunctionCall(line);
         }
+    }
+
+    handleForLoop(line) {
+        const match = line.match(/for every \{(\w+)\} in \{(\w+)\}:/);
+        if (match) {
+            const varName = match[1]; // The variable name (e.g., x)
+            const iterableName = match[2]; // The iterable (e.g., list)
+            const iterable = this.variables[iterableName];
+
+            if (Array.isArray(iterable)) {
+                // Iterate over each item in the iterable
+                for (const item of iterable) {
+                    this.variables[varName] = item; // Set the loop variable
+                    // Execute the next lines in the loop body
+                    this.processLoopBody();
+                }
+            } else {
+                this.output(`Error: {${iterableName}} is not iterable.`);
+            }
+        }
+    }
+
+    processLoopBody() {
+        // Here you can define what should happen inside the loop body
+        // For simplicity, just sending the value of the loop variable
+        this.output(`Current value: ${this.variables['x']}`); // Replace 'x' with the loop variable if needed
     }
 
     handleSend(line) {
@@ -33,13 +61,8 @@ class SkriptionInterpreter {
         // Replace variables with their values
         expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
             const value = this.variables[varName];
-            console.log(`Replacing ${match} with ${value}`); // Debugging log
             return value !== undefined ? value : match;
         });
-
-        console.log(`Evaluating expression: ${expression}`); // Debugging log
-
-        // Evaluate the final expression to get the output string
         const evaluatedOutput = this.evaluateExpression(expression);
         this.output(evaluatedOutput);
     }
@@ -49,7 +72,6 @@ class SkriptionInterpreter {
         const varName = match[1];
         const value = this.evaluateExpression(match[2]);
         this.variables[varName] = value;
-        console.log(`Assigned ${varName} = ${value}`); // Debugging log
     }
 
     handleFunctionDefinition(lines, startIndex) {
@@ -76,7 +98,6 @@ class SkriptionInterpreter {
     evaluateExpression(expression) {
         const varNames = Object.keys(this.variables);
         const varValues = Object.values(this.variables);
-        // Use a Function constructor to evaluate the expression
         const func = new Function(...varNames, `return ${expression};`);
         return func(...varValues);
     }
