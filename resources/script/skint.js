@@ -34,13 +34,13 @@ class SkriptionInterpreter {
             this.output(message[1]);
         } else {
             let expression = line.match(/send\s+(.*)/)[1];
-            expression = expression.replace(/%\{(.*?)\}%/g, (match, expr) => {
-                return this.evaluateExpression(expr);
+            expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
+                return this.variables[varName] !== undefined ? this.variables[varName] : match;
             });
-            this.output(expression);
+            const evaluatedExpression = this.evaluateExpression(expression);
+            this.output(evaluatedExpression);
         }
     }
-     
 
     handleAssignment(line) {
         const match = line.match(/\{(\w+)\}\s*=\s*(.*)/);
@@ -76,7 +76,6 @@ class SkriptionInterpreter {
         const func = new Function(...varNames, `return ${expression};`);
         return func(...varValues);
     }
-    
 
     output(message) {
         const outputElement = document.getElementById('output');
