@@ -89,3 +89,16 @@ function executeSkription() {
 function clearOutput() {
     document.getElementById('output').textContent = '';
 }
+
+function adjustTextareaHeight() {
+    const textarea = document.getElementById('skriptionCode');
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+}
+
+// Initialize the textarea height adjustment
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('skriptionCode');
+    textarea.addEventListener('input', adjustTextareaHeight);
+    adjustTextareaHeight(); // Adjust height on page load
+});

@@ -14,10 +14,7 @@
   <main>
     <section>
       <h2>Write and Run Skription Code</h2>
-      <h3>About Skription</h3>
-      <p>Skription is a programming language created by qloha.</p>
-      <p>Right now, it's only in the web, but maybe it will be like Python one day...</p>
-      <textarea id="skriptionCode" placeholder="Write your Skription code here..."></textarea>
+      <textarea id="skriptionCode" placeholder="Write your Skription code here..." oninput="adjustTextareaHeight()"></textarea>
       <div class="buttons">
         <button onclick="executeSkription()">Run</button>
         <button onclick="clearOutput()">Clear</button>
