@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skription Interpreter</title>
+  <link rel="stylesheet" href="resources/styles/skription.css">
+  <link rel="icon" type="image/png" href="resources/images/u!.png">
+</head>
+<body>
+  <header>
+    <h1>Skription Interpreter</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Write and Run Skription Code</h2>
+      <h3>About Skription</h3>
+      <p>Skription is a programming language created by qloha.</p>
+      <p>Right now, it's only in the web, but maybe it will be like Python one day...</p>
+      <textarea id="skriptionCode" placeholder="Write your Skription code here..."></textarea>
+      <div class="buttons">
+        <button onclick="executeSkription()">Run</button>
+        <button onclick="clearOutput()">Clear</button>
+      </div>
+      <pre id="output"></pre>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 qloha. All rights reserved.</p>
+  </footer>
+  <script src="resources/script/skint.js"></script>
+</body>
+</html>
