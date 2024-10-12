@@ -33,7 +33,10 @@ class SkriptionInterpreter {
         if (message) {
             this.output(message[1]);
         } else {
-            const expression = line.match(/send\s+(.*)/)[1];
+            let expression = line.match(/send\s+(.*)/)[1];
+            expression = expression.replace(/\{(\w+)\}/g, (match, varName) => {
+                return this.variables[varName] !== undefined ? this.variables[varName] : match;
+            });
             const evaluatedExpression = this.evaluateExpression(expression);
             this.output(evaluatedExpression);
         }
