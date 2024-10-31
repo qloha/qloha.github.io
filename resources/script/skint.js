@@ -149,7 +149,7 @@ class SkriptionInterpreter {
             if (this.variables[p1] !== undefined) {
                 return this.variables[p1];
             }
-            return match; // Return the original match if the variable doesn't exist
+            return match; // Return the original match if the variable doesn't exist https://pastebin.com/9ZAAbZfP
         });
     }
 
