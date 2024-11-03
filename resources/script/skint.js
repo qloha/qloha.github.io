@@ -1,6 +1,6 @@
 console.log("Hello. If you are reading this, you have inspected this page.")
 console.log("I should also let you know that the Skription compiler is not complete at all, and is just another side project.")
-console.log("I wish I could continue making this language, but there are too many bugs for me to fix right now, so I have to put this project aside.")//pastebin/9ZAAbZfP
+console.log("I wish I could continue making this language, but there are too many bugs for me to fix right now, so I have to put this project aside.")
 console.log("I hope this finds you well, and have a good day.")
 
 class SkriptionInterpreter {
