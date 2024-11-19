@@ -22,23 +22,31 @@ nav {
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  margin: 0 10px;
   display: flex;
   justify-content: center;
-}
-
-nav ul li {
-  margin: 0 1rem;
+  gap: 1rem;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+nav ul li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 main {
@@ -50,51 +58,12 @@ main {
 }
 
 h2, h3 {
+  text-align: center;
   color: #4CAF50;
 }
 
 h1 {
   color: white
-}
-
-pre {
-  background-color: #f4f4f4;
-  padding: 1rem;
-  border-left: 5px solid #4CAF50;
-  overflow-x: auto;
-}
-
-code {
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* Search form styles */
-.search-form {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.search-input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  width: 70%;
-}
-
-.search-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  border-radius: 0 4px 4px 0;
-}
-
-.search-button:hover {
-  background-color: #45a049;
 }
 
 footer {
@@ -117,22 +86,4 @@ footer {
       transform: translateY(100%);
       opacity: 0;
   }
-}
-
-.download-select {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.download-link {
-  text-decoration: none;
-  color: #4CAF50;
-}
-
-.download-link:hover {
-  text-decoration: underline;
 }
