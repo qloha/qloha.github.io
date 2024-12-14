@@ -21,7 +21,7 @@
       <li><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, C++, Kotlin</li>
       <li><strong>Frontend Frameworks:</strong> Vue.js, React</li>
       <li><strong>Backend:</strong> Node.js, Express.js, Flask</li>
-      <li><strong>Tools & Technologies:</strong> Git, WebStorm, Pear AI, IntelliJ Idea</li>
+      <li><strong>Tools & Technologies:</strong> Git, WebStorm, Pear AI, IntelliJ IDEA</li>
       <li><strong>Other:</strong> API integration, Compiler development, Random utilities</li>
     </ul>
   </section>

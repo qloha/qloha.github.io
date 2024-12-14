@@ -1,13 +1,14 @@
 <template>
   <section class="projects">
-    <h2>Here are some of my web projects:</h2>
+    <h2>Here are some of my projects</h2>
     <div class="project-grid">
       <ProjectCard
           v-for="(project, index) in projects"
           :key="index"
           :title="project.title"
           :description="project.description"
-          :link="project.link"
+          :repository="project.repository"
+          :demo="project.demo"
       />
     </div>
   </section>
@@ -26,17 +27,20 @@ export default {
         {
           title: 'SmoothMath (SM) Documentation',
           description: 'Learn all about SmoothMath, a library for easier Python math calculations.',
-          link: 'https://qloha.github.io/smoothmath',
+          repository: 'https://github.com/qloha/SmoothMath',
+          demo: 'https://qloha.github.io/SmoothMathDemo',
         },
         {
           title: 'RandomStr',
           description: 'Generate random strings for your Python projects easily.',
-          link: 'https://qloha.github.io/randomstr',
+          repository: 'https://github.com/qloha/RandomStr',
+          demo: 'https://qloha.github.io/RandomStrDemo',
         },
         {
           title: 'Synze',
           description: 'A simple yet powerful interpreted programming language built in C++.',
-          link: 'https://SynzeLang.github.io/',
+          repository: 'https://github.com/SynzeLang/Synze',
+          demo: 'https://SynzeLang.github.io/',
         }
       ],
     };

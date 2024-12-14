@@ -2,7 +2,8 @@
   <div class="project-card hvr-grow">
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
-    <a :href="link" target="_blank" class="hvr-fade">View Project</a>
+    <a :href="repository" target="_blank" class="hvr-fade">View Project</a>
+    <a :href="demo" target="_blank" class="hvr-fade">Demo</a>
   </div>
 </template>
 
@@ -11,7 +12,8 @@ export default {
   props: {
     title: String,
     description: String,
-    link: String,
+    repository: String,
+    demo: String,
   },
 };
 </script>
@@ -30,12 +32,12 @@ export default {
 
 .project-card a {
   display: inline-block;
-  margin-top: 10px;
+  margin: 0 10px 0 0;
   padding: 10px 15px;
   background-color: #76c7c0;
   color: #121212;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 0.9em;
   font-weight: bold;
 }
