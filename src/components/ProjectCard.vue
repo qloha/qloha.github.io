@@ -2,7 +2,7 @@
   <div class="project-card hvr-grow">
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
-    <a :href="repository" target="_blank" class="hvr-fade">View Project</a>
+    <a :href="repository" target="_blank" class="hvr-fade">Repository</a>
     <a :href="demo" target="_blank" class="hvr-fade">Demo</a>
   </div>
 </template>
