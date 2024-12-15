@@ -3,8 +3,8 @@
     <div class="logo"><router-link to="/">qloha</router-link></div>
     <nav>
       <ul class="nav-links">
-        <li><router-link to="/" class="hvr-underline-from-left">Home</router-link></li>
-        <li><router-link to="/projects" class="hvr-underline-from-left">Projects</router-link></li>
+        <li><router-link to="/" class="hvr-underline-from-right">Home</router-link></li>
+        <li><router-link to="/projects" class="hvr-underline-from-center">Projects</router-link></li>
         <li><router-link to="/about" class="hvr-underline-from-left">About</router-link></li>
       </ul>
     </nav>

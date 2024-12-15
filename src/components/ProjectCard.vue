@@ -33,40 +33,25 @@ export default {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-card::before,
-.project-card::after {
-  content: "";
-  position: absolute;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.5s, opacity 0.5s;
-}
-
 .project-card::before {
-  width: 200px;
-  height: 200px;
-  top: -50%;
-  left: -50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: skewX(-20deg);
+  transition: left 1.5s ease;
 }
 
-.project-card::after {
-  width: 300px;
-  height: 300px;
-  bottom: -50%;
-  right: -50%;
+.project-card:hover::before {
+  left: 100%;
 }
 
 .project-card:hover {
   transform: scale(1.03);
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
-}
-
-.project-card:hover::before,
-.project-card:hover::after {
-  opacity: 1;
-  transform: translate(50%, 50%);
 }
 
 .project-card-content {

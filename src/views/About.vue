@@ -4,12 +4,12 @@
     <p>
       Hi, I'm qloha! Welcome to my portfolio. This website is a space where I share
       some of my favorite web projects, programming experiments, and ideas. If you're
-      here, you're probably curious about what I do—and that's awesome!
+      here, you're probably curious about what I do!
     </p>
     <p>
       I enjoy building tools, experimenting with new technologies, and crafting
-      user-friendly applications. Whether it's a compiler, a random string generator, or
-      documentation for developers, I aim to create things that are as functional as they
+      user-friendly applications. Whether it's a compiler for a progamming language, a random string generator, or
+      documentation for one of my projects, I aim to create things that are as functional as they
       are fun to use.
     </p>
     <p>
@@ -22,7 +22,6 @@
       <li><strong>Frontend Frameworks:</strong> Vue.js, React</li>
       <li><strong>Backend:</strong> Node.js, Express.js, Flask</li>
       <li><strong>Tools & Technologies:</strong> Git, WebStorm, Pear AI, IntelliJ IDEA</li>
-      <li><strong>Other:</strong> API integration, Compiler development, Random utilities</li>
     </ul>
   </section>
 </template>
@@ -48,11 +47,13 @@
 }
 
 .about p {
+  user-select: text;
   margin-bottom: 15px;
   text-align: justify;
 }
 
 .skills {
+  cursor: default;
   list-style: none;
   padding: 0;
   margin: 20px 0;
@@ -73,22 +74,6 @@
 .skills li:hover {
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
-}
-
-.skills li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: skewX(-45deg);
-  transition: left 1.5s ease;
-}
-
-.skills li:hover::before {
-  left: 100%;
 }
 
 .skills li strong {

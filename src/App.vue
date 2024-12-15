@@ -25,10 +25,15 @@ export default {
 <style>
 body {
   font-family: 'Inter', sans-serif;
+  user-select: none;
   margin: 0;
   padding: 0;
   background-color: #121212;
   color: #e0e0e0;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 #app {
