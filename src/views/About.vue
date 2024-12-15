@@ -18,8 +18,8 @@
 
     <h2>My Skills</h2>
     <ul class="skills">
-      <li><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, C++, Kotlin</li>
-      <li><strong>Frontend Frameworks:</strong> Vue.js, React</li>
+      <li><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, C++, Kotlin, TypeScript</li>
+      <li><strong>Frontend Frameworks:</strong> Vue.js, React, Vite.js</li>
       <li><strong>Backend:</strong> Node.js, Express.js, Flask</li>
       <li><strong>Tools & Technologies:</strong> Git, WebStorm, Pear AI, IntelliJ IDEA</li>
     </ul>
