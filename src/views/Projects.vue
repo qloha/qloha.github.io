@@ -28,13 +28,13 @@ export default {
           title: 'SmoothMath (SM) Documentation',
           description: 'Learn all about SmoothMath, a library for easier Python math calculations.',
           repository: 'https://github.com/qloha/SmoothMath',
-          demo: 'https://qloha.github.io/SmoothMathDemo',
+          demo: 'https://qloha.github.io/SmoothMath-Docs',
         },
         {
           title: 'RandomStr',
           description: 'Generate random strings for your Python projects easily.',
           repository: 'https://github.com/qloha/RandomStr',
-          demo: 'https://qloha.github.io/RandomStrDemo',
+          demo: 'https://qloha.github.io/RandomStr-Docs',
         },
         {
           title: 'Synze',
