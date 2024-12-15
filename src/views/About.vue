@@ -38,7 +38,6 @@
   color: #e0e0e0;
   font-size: 1.2em;
   line-height: 1.8;
-  animation: fadeIn 0.5s ease-in-out;
 }
 
 .about h2 {
@@ -60,25 +59,39 @@
 }
 
 .skills li {
+  position: relative;
+  overflow: hidden;
   margin-bottom: 10px;
   background: #292929;
   padding: 10px 15px;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateZ(0);
+}
+
+.skills li:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.skills li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-45deg);
+  transition: left 1.5s ease;
+}
+
+.skills li:hover::before {
+  left: 100%;
 }
 
 .skills li strong {
   color: #76c7c0;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 </style>
