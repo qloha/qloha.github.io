@@ -32,7 +32,7 @@ export default {
         },
         {
           title: '&udm=14 Search',
-          description: 'Tired of all the ads & AI popups in google? Use this website to search free without any of that annoying garbage!',
+          description: 'Tired of all the ads and AI popups in google? Use this website to search free without any of that annoying garbage!',
           repository: 'https://github.com/qloha/udm14',
           demo: 'https://qloha.github.io/udm14',
         },
