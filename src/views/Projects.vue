@@ -31,10 +31,10 @@ export default {
           demo: 'https://qloha.github.io/SmoothMath-Docs',
         },
         {
-          title: 'RandomStr',
-          description: 'Generate random strings for your Python projects easily.',
-          repository: 'https://github.com/qloha/RandomStr',
-          demo: 'https://qloha.github.io/RandomStr-Docs',
+          title: '&udm=14 Search',
+          description: 'Tired of all the ads & AI popups in google? Use this website to search free without any of that annoying garbage!',
+          repository: 'https://github.com/qloha/udm14',
+          demo: 'https://qloha.github.io/udm14',
         },
         {
           title: 'Synze',
