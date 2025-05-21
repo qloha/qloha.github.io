@@ -48,13 +48,13 @@
 >
 	<div class="absolute inset-0 -z-10" />
 
-	<header class="border-b border-zinc-800 p-6 relative z-10 select-none">
+	<header class="border-b border-zinc-800 p-6 relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
 		<div class="max-w-5xl mx-auto flex items-center justify-between">
 			<h1 class="text-2xl font-bold text-primary select-none">qloha</h1>
 			<nav class="space-x-4 select-none">
-				<a href="/" class="hover:underline text-zinc-300 select-none">Home</a>
-				<a href="/about" class="hover:underline text-zinc-300 select-none">About</a>
-				<a href="/projects" class="hover:underline text-zinc-300 select-none">Projects</a>
+				<a href="/" class="hover:underline text-zinc-300 hover:text-white transition-colors">Home</a>
+				<a href="/about" class="hover:underline text-zinc-300 hover:text-white transition-colors">About</a>
+				<a href="/projects" class="hover:underline text-zinc-300 hover:text-white transition-colors">Projects</a>
 			</nav>
 		</div>
 	</header>
@@ -63,9 +63,9 @@
 		<slot />
 	</main>
 
-	<footer class="border-t border-zinc-800 p-6 mt-auto relative z-10 select-none">
+	<footer class="border-t border-zinc-800 p-6 mt-auto relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
 		<div class="max-w-5xl mx-auto text-center">
-			<p class="text-sm text-zinc-500">
+			<p class="text-sm text-zinc-300">
 				© 2025 qloha. All rights reserved.
 			</p>
 		</div>
