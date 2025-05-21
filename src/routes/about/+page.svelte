@@ -1,0 +1,22 @@
+<div class="relative z-10 max-w-5xl mx-auto p-6">
+	<h1 class="text-4xl font-bold text-primary">About Me</h1>
+	<div class="mt-6 space-y-4 text-zinc-300">
+		<p>
+			Hi, I'm qloha! Welcome to my portfolio. This website is a space where I share some of my favorite web projects, programming experiments, and ideas.
+		</p>
+		<p>
+			I enjoy building tools, experimenting with new technologies, and crafting user-friendly applications. Whether it's a compiler for a programming language, a random string generator, or documentation for one of my projects, I aim to create things that are as functional as they are fun to use.
+		</p>
+		<p>Feel free to check out my projects or connect with me. Thanks for stopping by!</p>
+	</div>
+
+	<div class="mt-12">
+		<h2 class="text-2xl text-secondary font-semibold">Skills & Tools</h2>
+		<ul class="mt-4 space-y-2 text-zinc-300">
+			<li><strong class="text-primary">Languages:</strong> HTML, CSS, JavaScript, Java, Python, C++, Kotlin, TypeScript, C, C#, Lua</li>
+			<li><strong class="text-primary">Frontend:</strong> Vue.js, React, Vite.js, Svelte</li>
+			<li><strong class="text-primary">Backend:</strong> Node.js, Express.js, Flask, Next.js</li>
+			<li><strong class="text-primary">Tools:</strong> Git, WebStorm, Pear AI, IntelliJ IDEA, GitHub</li>
+		</ul>
+	</div>
+</div>

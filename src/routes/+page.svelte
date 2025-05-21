@@ -1,0 +1,12 @@
+<div class="relative z-10 max-w-5xl mx-auto p-6">
+	<h1 class="text-5xl font-bold text-primary">Hey, I'm qloha 👋</h1>
+	<p class="mt-6 text-lg text-zinc-300 max-w-xl">
+		I create developer tools, interfaces, and projects that explore the weird edges of technology.
+	</p>
+	<a
+		href="/projects"
+		class="inline-block mt-8 px-6 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-secondary hover:text-white transition-all"
+	>
+		See My Projects
+	</a>
+</div>
