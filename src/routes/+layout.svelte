@@ -48,11 +48,19 @@
 
 	<header class="border-b border-zinc-800 p-6 relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
 		<div class="max-w-5xl mx-auto flex items-center justify-between">
-			<h1 class="text-2xl font-bold text-primary select-none">qloha</h1>
-			<nav class="space-x-4 select-none">
-				<a href="/" class="hover:underline text-zinc-300 hover:text-white transition-colors">Home</a>
-				<a href="/about" class="hover:underline text-zinc-300 hover:text-white transition-colors">About</a>
-				<a href="/projects" class="hover:underline text-zinc-300 hover:text-white transition-colors">Projects</a>
+			<h1 class="text-2xl font-bold text-primary select-none hover:text-secondary transition-colors duration-300">
+				qloha
+			</h1>
+			<nav class="space-x-6 select-none">
+				<a href="/" class="text-zinc-300 hover:text-white hover:underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-all duration-300">
+					Home
+				</a>
+				<a href="/projects" class="text-zinc-300 hover:text-white hover:underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-all duration-300">
+					Projects
+				</a>
+				<a href="/about" class="text-zinc-300 hover:text-white hover:underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-all duration-300">
+					About
+				</a>
 			</nav>
 		</div>
 	</header>
