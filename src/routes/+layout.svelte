@@ -13,7 +13,7 @@
 	let vantaRef: VantaElement;
 
 	onMount(() => {
-		const effect = NET({
+		vantaRef.vantaEffect = NET({
 			el: vantaRef,
 			THREE,
 			mouseControls: true,
@@ -25,8 +25,6 @@
 			color: 0xff79c6,
 			backgroundColor: 0x1a1b2f
 		});
-
-		vantaRef.vantaEffect = effect;
 
 		return () => {
 			if (vantaRef?.vantaEffect) {
