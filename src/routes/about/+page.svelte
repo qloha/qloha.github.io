@@ -3,12 +3,12 @@
 		<h1 class="text-4xl font-bold text-primary mb-6">About Me</h1>
 		<div class="space-y-4 text-zinc-200">
 			<p class="text-lg">
-				Hi, I'm qloha! Welcome to my portfolio. This website is a space where I share some of my favorite web projects, programming experiments, and ideas.
+				Welcome to my portfolio. This website is a space where I share some of my favorite projects, experiments, and ideas.
 			</p>
 			<p class="text-lg">
 				I enjoy building tools, experimenting with new technologies, and crafting user-friendly applications.
 			</p>
-			<p class="text-lg">Feel free to check out my projects or connect with me. Thanks for stopping by!</p>
+			<p class="text-lg">Feel free to check out my projects.</p>
 		</div>
 
 		<div class="mt-12">
