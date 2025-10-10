@@ -20,7 +20,7 @@
 			touchControls: true,
 			minHeight: 200.0,
 			minWidth: 200.0,
-			scale: 1.0,
+			scale: 1,
 			scaleMobile: 1.0,
 			color: 0xff79c6,
 			backgroundColor: 0x1a1b2f
@@ -46,10 +46,12 @@
 >
 	<div class="absolute inset-0 -z-10" />
 
-	<header class="border-b border-zinc-800 p-6 relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
+	<header class="border-b border-zinc-800 p-4 relative select-none bg-neutral-900/80 backdrop-blur-sm">
 		<div class="max-w-5xl mx-auto flex items-center justify-between">
-			<h1 class="text-2xl font-bold text-primary select-none hover:text-secondary transition-colors duration-300">
-				qloha
+			<h1 class="text-2xl font-semibold text-primary select-none hover:text-secondary transition-colors duration-300">
+				<a href="/">
+					qloha
+				</a>
 			</h1>
 			<nav class="space-x-6 select-none">
 				<a href="/" class="text-zinc-300 hover:text-white hover:underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-all duration-300">
@@ -65,14 +67,18 @@
 		</div>
 	</header>
 
-	<main class="max-w-5xl mx-auto p-6 flex-grow relative z-10 select-none">
+	<main class="max-w-5xl mx-auto p-4 flex-grow relative select-none">
 		<slot />
 	</main>
 
-	<footer class="border-t border-zinc-800 p-6 mt-auto relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
+	<footer class="border-t border-zinc-800 sticky p-3 mt-auto relative z-10 select-none bg-neutral-900/80 backdrop-blur-sm">
 		<div class="max-w-5xl mx-auto text-center">
 			<p class="text-sm text-zinc-300">
 				© 2025 qloha. All rights reserved.
+			</p>
+			<p class="text-sm p-1 text-zinc-300">
+				<a href="https://github.com/qloha" class="text-primary hover:underline mx-2 transition-colors">GitHub</a>
+				<a href="mailto:sirfigaloha@gmail.com" class="text-primary hover:underline mx-2 transition-colors">Email</a>
 			</p>
 		</div>
 	</footer>
