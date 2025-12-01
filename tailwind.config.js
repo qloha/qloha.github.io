@@ -7,6 +7,8 @@ export default {
 		extend: {
 			colors: {
 				primary: '#4f46e5',
+				accent: '#06b6d4', // cyan accent similar to baylor.dev
+				bg: '#0b1020'
 			},
 			fontFamily: {
 				sans: ['Inter', 'ui-sans-serif', 'system-ui'],

@@ -1,78 +1,29 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import VanillaTilt from 'vanilla-tilt';
+	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
 	import { projects } from '$lib/data/projects';
-
-	let cardEls: HTMLElement[] = [];
-
-	onMount(() => {
-		cardEls.forEach((card) => {
-			if (card) {
-				VanillaTilt.init(card, {
-					max: 8,
-					speed: 300,
-					glare: true,
-					'max-glare': 0.15,
-					scale: 1.03,
-					perspective: 1000,
-					easing: 'cubic-bezier(.03,.98,.52,.99)'
-				});
-			}
-		});
-
-		return () => {
-			cardEls.forEach(card => {
-				if (card && card.vanillaTilt) {
-					card.vanillaTilt.destroy();
-				}
-			});
-		};
-	});
+	import { onMount } from 'svelte';
+	let mounted = false;
+	onMount(() => setTimeout(() => (mounted = true), 120));
 </script>
 
-<div class="relative z-10 max-w-5xl mx-auto p-6">
-	<div class="bg-neutral-900/80 backdrop-blur-sm rounded-xl p-8 border border-white/10 mb-8">
-		<h1 class="text-4xl text-primary mb-2">Projects</h1>
+<section class="container py-8">
+	<div class={`section-header ${mounted ? 'mounted' : ''}`}>
+		<h2 class="flex items-center gap-3 text-2xl md:text-3xl font-extrabold leading-tight">
+			<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="12" cy="12" r="10" fill="url(#g)" />
+				<defs>
+					<linearGradient id="g" x1="0" x2="1">
+						<stop offset="0%" stop-color="#06b6d4" />
+						<stop offset="100%" stop-color="#8b5cf6" />
+					</linearGradient>
+				</defs>
+			</svg>
+			<span class="section-title">Projects</span>
+		</h2>
+		<span class="block mt-2"></span>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-		{#each projects as project, i}
-			<div
-				bind:this={cardEls[i]}
-				class="bg-neutral-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/10 hover:border-secondary transition-all transform-style-preserve-3d"
-			>
-				<div class="transform-preserve-3d">
-					<h2 class="text-2xl text-primary">{project.title}</h2>
-					<p class="text-zinc-200 mt-3">{project.description}</p>
-					<div class="mt-4 flex gap-4">
-						<a
-							href={project.repository}
-							class="text-secondary hover:underline hover:text-primary transition-colors"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Repository
-						</a>
-						<a
-							href={project.demo}
-							class="text-secondary hover:underline hover:text-primary transition-colors"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Demo
-						</a>
-					</div>
-				</div>
-			</div>
-		{/each}
+	<div class="bg-neutral-800/40 border border-white/6 rounded-lg p-6 mt-6">
+		<ProjectsGrid {projects} />
 	</div>
-</div>
-
-<style>
-    .transform-style-preserve-3d {
-        transform-style: preserve-3d;
-    }
-    .transform-preserve-3d {
-        transform: translateZ(20px);
-    }
-</style>
+</section>

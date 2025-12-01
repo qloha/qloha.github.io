@@ -1,17 +1,36 @@
-<div class="relative z-10 max-w-5xl mx-auto p-6">
-	<div class="bg-neutral-900/80 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-		<h1 class="text-4xl text-primary mb-6">Welcome! Please explore this site</h1>
-		<a
-			href="/projects"
-			class="inline-block  px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary transition-colors"
-		>
-			See My Projects
-		</a>
-		<a
-			href="/projects"
-			class="inline-block text- px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary transition-colors"
-		>
-			About Me
-		</a>
+<script lang="ts">
+	import Hero from '$lib/components/Hero.svelte';
+	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
+	import About from '$lib/components/About.svelte';
+	import { projects } from '$lib/data/projects';
+	import { onMount } from 'svelte';
+	let mounted = false;
+	onMount(() => setTimeout(() => (mounted = true), 120));
+</script>
+
+<Hero title="qloha" subtitle="I build things for the web — software, tools, and small projects." />
+
+<!-- Projects section with site header and card wrapper -->
+<section class="container mt-8">
+	<div class={`section-header ${mounted ? 'mounted' : ''}`}>
+		<h2 class="flex items-center gap-3 text-2xl md:text-3xl font-extrabold leading-tight">
+			<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="12" cy="12" r="10" fill="url(#g)" />
+				<defs>
+					<linearGradient id="g" x1="0" x2="1">
+						<stop offset="0%" stop-color="#06b6d4" />
+						<stop offset="100%" stop-color="#8b5cf6" />
+					</linearGradient>
+				</defs>
+			</svg>
+			<span class="section-title">Projects</span>
+		</h2>
+		<span class="block mt-2"></span>
 	</div>
-</div>
+
+	<div class="bg-neutral-800/40 border border-white/6 rounded-lg p-6 mt-6">
+		<ProjectsGrid {projects} />
+	</div>
+</section>
+
+<About content="I'm a developer who focuses on building small, well-crafted tools and web experiences. I like to explore languages, compilers, and performance-sensitive projects." />

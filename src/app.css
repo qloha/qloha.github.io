@@ -1,13 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 @import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root{
+	--bg: #0b1020;
+	--muted: #94a3b8;
+	--muted-2: #6b7280;
+	--text: #e6eef8;
+	--accent: #06b6d4;
+}
+
+html, body, #svelte {
+	height: 100%;
+}
+
 body {
-    overflow-x: hidden;
+	@apply bg-[var(--bg)] text-[var(--text)] font-sans;
+	overflow-x: hidden;
+}
+
+/* Scope the default anchor color so button-style anchors can opt-out with .btn */
+a:not(.btn) {
+	@apply text-[var(--accent)] hover:underline;
+}
+
+/* Optional helper: .btn to style button-like links consistently */
+.btn {
+	@apply inline-flex items-center gap-2 px-4 py-2 rounded-md font-medium;
+}
+
+.container {
+	@apply mx-auto px-6 max-w-3xl;
+}
+
+/* subtle focus outline for keyboard accessibility */
+:focus {
+	outline: 2px solid rgba(6,182,212,0.12);
+	outline-offset: 2px;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Section title with gradient text and animated underline */
+.section-header .section-title {
+	position: relative;
+	display: inline-block;
+	background: linear-gradient(90deg, #06b6d4, #60a5fa, #8b5cf6);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	background-size: 200% 100%;
+	animation: titleShimmer 4s linear infinite;
+}
+
+.section-header .section-title::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -0.5rem;
+	height: 4px;
+	width: 5rem;
+	border-radius: 999px;
+	background: linear-gradient(90deg, rgba(6,182,212,1), rgba(139,92,246,1));
+	transform-origin: left;
+	transform: scaleX(0);
+	transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* When mounted, animate the underline */
+.section-header.mounted .section-title::after {
+	transform: scaleX(1);
+}
+
+/* icon sizing inside headings */
+.section-header svg {
+	width: 28px;
+	height: 28px;
+	flex-shrink: 0;
+	transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+	will-change: transform;
+	animation: iconBob 3.2s ease-in-out infinite alternate;
+}
+
+/* subtle shimmer for gradient title */
+@keyframes titleShimmer {
+	0% { background-position: -200% 0; }
+	100% { background-position: 200% 0; }
+}
+
+/* gentle bob for heading icon */
+@keyframes iconBob {
+	0% { transform: translateY(0) rotate(0deg); }
+	100% { transform: translateY(-4px) rotate(4deg); }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+	.section-header .section-title { animation: none; }
+	.section-header svg { animation: none; }
+	:focus { outline: 2px solid rgba(6,182,212,0.06); }
 }
