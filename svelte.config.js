@@ -6,15 +6,14 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			fallback: '404.html',
 			pages: 'build',
 			assets: 'build',
 			precompress: false,
-			strict: false
+			strict: true
 		}),
 		paths: {
 			base: '', // Keep empty for root deployment
-			relative: true // This makes paths relative
+			relative: false // The custom domain serves this site at the root.
 		},
 		appDir: 'app'
 	}

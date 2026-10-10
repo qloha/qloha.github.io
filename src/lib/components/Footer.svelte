@@ -1,10 +1,12 @@
-<footer class="w-full mt-12 pb-8">
-	<div class="container text-center text-sm text-[var(--muted)]">
-		<p>© 2025 qloha. All rights reserved.</p>
-		<p class="mt-2">
-			<a href="https://github.com/qloha" class="mr-4">GitHub</a>
-			<a href="mailto:sirfigaloha@gmail.com">Email</a>
-		</p>
+<script lang="ts">
+	import { site } from '$lib/site';
+</script>
+
+<footer class="site-footer container">
+	<p>© {new Date().getFullYear()} qloha</p>
+	<div>
+		<a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a><a
+			href={`mailto:${site.email}`}>Email me</a
+		>
 	</div>
 </footer>
-

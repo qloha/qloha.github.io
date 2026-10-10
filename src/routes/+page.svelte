@@ -2,35 +2,17 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
 	import About from '$lib/components/About.svelte';
+	import CurrentWork from '$lib/components/CurrentWork.svelte';
 	import { projects } from '$lib/data/projects';
-	import { onMount } from 'svelte';
-	let mounted = false;
-	onMount(() => setTimeout(() => (mounted = true), 120));
 </script>
 
-<Hero title="qloha" subtitle="I build things for the web — software, tools, and small projects." />
-
-<!-- Projects section with site header and card wrapper -->
-<section class="container mt-8">
-	<div class={`section-header ${mounted ? 'mounted' : ''}`}>
-		<h2 class="flex items-center gap-3 text-2xl md:text-3xl font-extrabold leading-tight">
-			<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="12" cy="12" r="10" fill="url(#g)" />
-				<defs>
-					<linearGradient id="g" x1="0" x2="1">
-						<stop offset="0%" stop-color="#06b6d4" />
-						<stop offset="100%" stop-color="#8b5cf6" />
-					</linearGradient>
-				</defs>
-			</svg>
-			<span class="section-title">Projects</span>
-		</h2>
-		<span class="block mt-2"></span>
+<Hero />
+<div class="container"><CurrentWork /></div>
+<section class="work-section container" aria-labelledby="work-title">
+	<div class="section-heading">
+		<h2 id="work-title">Some of my projects</h2>
+		<a class="text-link" href="/projects">See all projects</a>
 	</div>
-
-	<div class="bg-neutral-800/40 border border-white/6 rounded-lg p-6 mt-6">
-		<ProjectsGrid {projects} />
-	</div>
+	<ProjectsGrid projects={projects.slice(0, 3)} />
 </section>
-
-<About content="I'm a developer who focuses on building small, well-crafted tools and web experiences. I like to explore languages, compilers, and performance-sensitive projects." />
+<About />

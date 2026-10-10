@@ -1,14 +1,23 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import ThemeSwitch from './ThemeSwitch.svelte';
 </script>
 
-<header class="w-full py-4">
-	<div class="container flex items-center justify-between">
-		<a href="/" class="text-lg font-semibold tracking-tight text-white">qloha</a>
-		<nav class="flex items-center gap-6 text-sm text-[var(--muted)]">
-			<a href="/" class="hover:text-[var(--text)]">Home</a>
-			<a href="/projects" class="hover:text-[var(--text)]">Projects</a>
-			<a href="/about" class="hover:text-[var(--text)]">About</a>
-		</nav>
+<header class="navbar">
+	<div class="site-header container">
+		<a href="/" class="wordmark" aria-label="qloha home">qloha</a>
+		<div class="header-controls">
+			<nav aria-label="Main navigation">
+				{#each [['/', 'Home'], ['/projects', 'Projects'], ['/about', 'About']] as [href, label]}
+					<a
+						{href}
+						aria-current={$page.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '')
+							? 'page'
+							: undefined}>{label}</a
+					>
+				{/each}
+			</nav>
+			<ThemeSwitch />
+		</div>
 	</div>
 </header>

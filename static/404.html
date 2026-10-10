@@ -1,16 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Redirecting...</title>
-	<script>
-		sessionStorage.redirect = location.pathname;
-	</script>
-	<meta http-equiv="refresh" content="0;URL='/'" />
-</head>
-<body>
-<noscript>
-	<meta http-equiv="refresh" content="0;URL='/'">
-</noscript>
-</body>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>Page not found | qloha</title>
+		<style>
+			:root {
+				color-scheme: light;
+				background: #faf9f6;
+				color: #272924;
+				font:
+					16px Arial,
+					sans-serif;
+			}
+			:root[data-theme='dark'] {
+				color-scheme: dark;
+				background: #191c19;
+				color: #e9ebe4;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+			}
+			main {
+				padding: 32px;
+				max-width: 500px;
+			}
+			p {
+				line-height: 1.75;
+			}
+			h1 {
+				font-size: 36px;
+				font-weight: 600;
+			}
+			a {
+				display: inline-block;
+				color: inherit;
+				padding-block: 16px;
+			}
+			a:focus-visible {
+				outline: 2px solid currentColor;
+				outline-offset: 5px;
+			}
+		</style>
+		<script>
+			(() => {
+				let saved;
+				try {
+					saved = localStorage.getItem('qloha-theme');
+				} catch {}
+				document.documentElement.dataset.theme =
+					saved === 'light' || saved === 'dark'
+						? saved
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+			})();
+		</script>
+	</head>
+	<body>
+		<main>
+			<h1>Page not found</h1>
+			<p>This page doesn’t exist.</p>
+			<a href="/">Back to home</a>
+		</main>
+	</body>
 </html>
