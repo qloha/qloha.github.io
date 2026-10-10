@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="alternate icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+			(() => {
+				let saved;
+				try {
+					saved = localStorage.getItem('qloha-theme');
+				} catch {}
+				const theme =
+					saved === 'light' || saved === 'dark'
+						? saved
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.dataset.theme = theme;
+				document.documentElement.style.colorScheme = theme;
+			})();
+		</script>
+		<link href="/app/immutable/entry/start.DF12H_pB.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/ByRhe3nx.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/DOXCnxXF.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/TMV80YSF.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/CC-DoinX.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/CLK4DMwj.js" rel="modulepreload">
+		<link href="/app/immutable/entry/app.C0qLsK0X.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/D7sNYOl0.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/CXjTjA35.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/C1ydA0Pb.js" rel="modulepreload">
+		<link href="/app/immutable/nodes/0.BtGeWANE.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/DX8fHyyZ.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/H9eaoK8Q.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/Un3tp4iz.js" rel="modulepreload">
+		<link href="/app/immutable/nodes/4.DEHIDMBW.js" rel="modulepreload">
+		<link href="/app/immutable/chunks/G0tlC3kc.js" rel="modulepreload">
+		<!--12qhfyh--><meta name="description" content="Projects by qloha, including websites, programming languages, and tools."/> <link rel="canonical" href="https://qloha.dev/projects/"/> <meta property="og:title" content="Projects | qloha"/><meta property="og:description" content="Projects by qloha, including websites, programming languages, and tools."/><meta property="og:type" content="website"/><meta property="og:url" content="https://qloha.dev/projects/"/><meta name="twitter:card" content="summary"/><!----><title>Projects | qloha</title>
+		<link href="/app/immutable/assets/0.DsFGlIaR.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[0--><!--[--><a class="skip-link" href="#main-content">Skip to content</a> <div class="site-shell"><header class="navbar"><div class="site-header container"><a href="/" class="wordmark" aria-label="qloha home">qloha</a> <div class="header-controls"><nav aria-label="Main navigation"><!--[--><a href="/">Home</a><a href="/projects" aria-current="page">Projects</a><a href="/about">About</a><!--]--></nav> <div class="theme-switch" role="group" aria-label="Color mode"><button type="button" disabled="" aria-pressed="true">Day</button> <button type="button" disabled="" aria-pressed="false">Night</button></div><!----></div></div></header><!----> <main id="main-content"><!--[--><!--[--><section class="container page-section" aria-labelledby="projects-title"><h1 id="projects-title">Projects</h1> <p class="page-intro">Here’s what I’ve been working on.</p> <div class="filter-bar"><div class="filters" role="group" aria-label="Filter projects by category"><!--[--><button type="button" aria-pressed="true" class="active">All</button><button type="button" aria-pressed="false">Web</button><button type="button" aria-pressed="false">Languages</button><button type="button" aria-pressed="false">Tools</button><button type="button" aria-pressed="false">Minecraft</button><button type="button" aria-pressed="false">Games</button><!--]--></div> <p aria-live="polite">10 projects</p></div> <div class="projects-grid"><!--[--><article class="project-card"><h3>Synze</h3> <p>A programming language written in C++.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>C++</span><span>Language design</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://synzelang.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Website: Synze (opens in a new tab)">Website</a><!--]--> <a href="https://github.com/SynzeLang/Synze" target="_blank" rel="noopener noreferrer" aria-label="Synze source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>My Website</h3> <p>This website, built with Svelte and TypeScript.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Svelte</span><span>TypeScript</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://qloha.dev" target="_blank" rel="noopener noreferrer" aria-label="Visit website: My Website (opens in a new tab)">Visit website</a><!--]--> <a href="https://github.com/qloha/qloha.github.io" target="_blank" rel="noopener noreferrer" aria-label="My Website source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>Decibel Detector</h3> <p>A tool for measuring sound levels.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>C++</span><span>Audio</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://github.com/qloha/decibel-detector/releases/" target="_blank" rel="noopener noreferrer" aria-label="View releases: Decibel Detector (opens in a new tab)">View releases</a><!--]--> <a href="https://github.com/qloha/decibel-detector" target="_blank" rel="noopener noreferrer" aria-label="Decibel Detector source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>SmoothMath Docs</h3> <p>Documentation for the SmoothMath Python package.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Vite</span><span>TypeScript</span><span>Documentation</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://qloha.github.io/SmoothMath-Docs/" target="_blank" rel="noopener noreferrer" aria-label="Read the docs: SmoothMath Docs (opens in a new tab)">Read the docs</a><!--]--> <a href="https://github.com/qloha/SmoothMath-Docs" target="_blank" rel="noopener noreferrer" aria-label="SmoothMath Docs source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>SkLoha</h3> <p>A Skript addon for Minecraft that adds scenes and other features.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Java</span><span>Skript</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://github.com/qloha/SkLoha/releases/" target="_blank" rel="noopener noreferrer" aria-label="View releases: SkLoha (opens in a new tab)">View releases</a><!--]--> <a href="https://github.com/qloha/SkLoha" target="_blank" rel="noopener noreferrer" aria-label="SkLoha source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>Raven A+</h3> <p>A Java project with source code and releases on GitHub.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Java</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://github.com/Raven-APlus/RavenAPlus/releases/" target="_blank" rel="noopener noreferrer" aria-label="View releases: Raven A+ (opens in a new tab)">View releases</a><!--]--> <a href="https://github.com/Raven-APlus/RavenAPlus" target="_blank" rel="noopener noreferrer" aria-label="Raven A+ source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>seemore</h3> <p>A Minecraft mod for Seymour stuff.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Minecraft</span><!--]--></div><!--]--> <div class="project-links"><!--[-1--><!--]--> <a href="https://github.com/qloha/seemore" target="_blank" rel="noopener noreferrer" aria-label="seemore source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>pew-pew-pew</h3> <p>A shooter game built with HTML.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>HTML</span><!--]--></div><!--]--> <div class="project-links"><!--[-1--><!--]--> <a href="https://github.com/qloha/pew-pew-pew" target="_blank" rel="noopener noreferrer" aria-label="pew-pew-pew source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>BetterEmotes</h3> <p>A Minecraft mod that adds chat emotes.</p> <!--[0--><div class="tags" aria-label="Built with"><!--[--><span>Java</span><span>Minecraft</span><!--]--></div><!--]--> <div class="project-links"><!--[0--><a href="https://www.curseforge.com/minecraft/mc-mods/better-emotes" target="_blank" rel="noopener noreferrer" aria-label="Get the mod: BetterEmotes (opens in a new tab)">Get the mod</a><!--]--> <a href="https://github.com/qloha/BetterEmotes" target="_blank" rel="noopener noreferrer" aria-label="BetterEmotes source code (opens in a new tab)">Source code</a></div></article><article class="project-card"><h3>RandomStr</h3> <p>A random string generator.</p> <!--[-1--><!--]--> <div class="project-links"><!--[-1--><!--]--> <a href="https://github.com/qloha/RandomStr" target="_blank" rel="noopener noreferrer" aria-label="RandomStr source code (opens in a new tab)">Source code</a></div></article><!--]--></div><!----></section><!--]--><!--]--></main> <footer class="site-footer container"><p>© 2026 qloha</p> <div><a href="https://github.com/qloha" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:sirfigaloha@gmail.com">Email me</a></div></footer><!----></div><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_id6nq4 = {
+						base: ""
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/app/immutable/entry/start.DF12H_pB.js"),
+						import("/app/immutable/entry/app.C0qLsK0X.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

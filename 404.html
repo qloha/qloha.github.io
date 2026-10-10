@@ -1,38 +1,71 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>qloha</title>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
-		<link rel="modulepreload" href="/app/immutable/entry/start.CfqWSfCG.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/BSIfLA9o.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/C1FtF2Gt.js">
-		<link rel="modulepreload" href="/app/immutable/entry/app.BdWJsRdf.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/DPAgKtB5.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/BCg7_FmQ.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/De_0Uscd.js">
-		<link rel="modulepreload" href="/app/immutable/chunks/BqKTsZ3f.js">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>Page not found | qloha</title>
+		<style>
+			:root {
+				color-scheme: light;
+				background: #faf9f6;
+				color: #272924;
+				font:
+					16px Arial,
+					sans-serif;
+			}
+			:root[data-theme='dark'] {
+				color-scheme: dark;
+				background: #191c19;
+				color: #e9ebe4;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+			}
+			main {
+				padding: 32px;
+				max-width: 500px;
+			}
+			p {
+				line-height: 1.75;
+			}
+			h1 {
+				font-size: 36px;
+				font-weight: 600;
+			}
+			a {
+				display: inline-block;
+				color: inherit;
+				padding-block: 16px;
+			}
+			a:focus-visible {
+				outline: 2px solid currentColor;
+				outline-offset: 5px;
+			}
+		</style>
+		<script>
+			(() => {
+				let saved;
+				try {
+					saved = localStorage.getItem('qloha-theme');
+				} catch {}
+				document.documentElement.dataset.theme =
+					saved === 'light' || saved === 'dark'
+						? saved
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+			})();
+		</script>
 	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">
-			<script>
-				{
-					__sveltekit_udrkxn = {
-						base: ""
-					};
-
-					const element = document.currentScript.parentElement;
-
-					Promise.all([
-						import("/app/immutable/entry/start.CfqWSfCG.js"),
-						import("/app/immutable/entry/app.BdWJsRdf.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element);
-					});
-				}
-			</script>
-		</div>
+	<body>
+		<main>
+			<h1>Page not found</h1>
+			<p>This page doesn’t exist.</p>
+			<a href="/">Back to home</a>
+		</main>
 	</body>
 </html>
